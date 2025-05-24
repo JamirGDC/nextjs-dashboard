@@ -12,7 +12,7 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Invoices',
     href: '/dashboard/invoices',
@@ -32,13 +32,18 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[54px] grow items-center justify-center gap-2 rounded-2xl bg-gray-50 p-3 text-[12px] font-bold hover:bg-white hover:text-[#4FD1C5] md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-sky-100 text-blue-600': pathname === link.href,
+                'bg-white': pathname === link.href,
               },
             )}
           >
-            <LinkIcon className="w-6" />
+            <div
+                className={clsx('', {'bg-[#4FD1C5] w-[30px] h-[30px] rounded-[12px] flex items-center justify-center': pathname === link.href})}>
+            <LinkIcon className={clsx('w-[15px]', {
+              'text-white': pathname === link.href,
+              'text-[#4FD1C5]': pathname !== link.href
+            })}/></div>
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
