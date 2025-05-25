@@ -1,7 +1,7 @@
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 
-export default function AcmeLogo() {
+export default function SalvaxeLogo() {
   return (
     <div
       className={`${lusitana.className} flex flex-row items-center justify-center leading-none gap-3 text-black`}
